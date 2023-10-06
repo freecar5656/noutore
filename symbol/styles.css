@@ -7,7 +7,7 @@ body {
 
 /* コンテナを中央に配置し、左右に余白を持たせるためのスタイル */
 .container {
-    max-width: 100%; /* コンテナの最大幅を画面の横幅に合わせる */
+    max-width: 90%; /* コンテナの最大幅を画面の横幅に合わせる */
     margin: 0%; /* 水平方向に中央に配置 */
     padding: 40px; /* 左右に余白を持たせる */
     text-align: center; /* 表示内容を中央揃えに */
@@ -41,18 +41,45 @@ body {
 button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff; /* ボタンの背景色を設定 */
-    color: #fff; /* ボタンの文字色を設定 */
+    background-color: #70b2b2;
+    color: #fff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 100px; /* 角の丸みを調整 */
     font-weight: bold;
+    font-size: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    border: none;
 }
 
 button:hover {
-    background-color: #0056b3; /* ボタンにマウスを移動すると少し濃い青になる */
+    background-color: #0fe7d5; /* ボタンにマウスを移動すると少し濃い青になる */
 }
 
 /* 1行目のセルのフォントサイズを25に設定 */
 .row:first-child .cell {
     font-size: 30px;
+}
+
+/* ボタンの親要素に対するスタイル */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px; /* 適切なマージンを設定してボタンを上下に配置 */
+}
+
+
+/* CSSファイルに追加するスタイル */
+#cardFlipButton {
+    position: fixed;
+    bottom: 50px; /* 画面下からの距離 */
+    right: 10%; /* 画面中央からの距離の半分 */
+}
+
+
+#answerButton {
+    position: fixed;
+    bottom: 50px; /* 画面下からの距離 */
+    left: 10%; /* 画面中央からの距離の半分 */
 }

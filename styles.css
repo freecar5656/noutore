@@ -35,6 +35,11 @@ h1 {
     color: #333;
 }
 
+h3 {
+    font-size: 24px;
+    color: #333;
+}
+
 .logo img {
     width: 50%; /* ロゴの幅を半分に設定 */
     max-width: 300px; /* ロゴの最大幅を設定 */
@@ -127,3 +132,17 @@ button:last-child {
     text-decoration: none; /* アンダーラインを非表示 */
     color: #000; /* リンクの文字色を黒に設定 */
 }
+/* ページのフェードインアニメーション */
+.page-animation {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+

@@ -8,3 +8,7 @@ const dateText = `${currentDate.getFullYear()}年${currentDate.getMonth() + 1}�
 
 // 日付をクリックしたら https://www.nnh.to/ に遷移
 dateElement.innerHTML = `<a href="https://www.nnh.to/" target="_self">${dateText}</a>`;
+
+// ボタン要素を取得
+const button = document.querySelector('button');
+

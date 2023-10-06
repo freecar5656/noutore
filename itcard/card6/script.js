@@ -56,3 +56,27 @@ cards.forEach(card => {
         console.log("カードがクリックされました", e);
     });
 });
+
+// すべて裏返すボタンのクリックイベントリスナーを追加
+const resetButton = document.getElementById("reset-button");
+resetButton.addEventListener("click", (e) => {
+    // すべてのカードの状態を「裏向き」に設定
+    cards.forEach(card => {
+        card.classList.remove("clicked");
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  // ページが読み込まれたらアニメーションを開始
+  const body = document.body;
+  body.style.animationPlayState = "running";
+});
+
+// 「次のワークへ」ボタンのクリックイベントリスナーを追加
+const nextWorkButton = document.querySelector(".next-work-button");
+nextWorkButton.addEventListener("click", (e) => {
+    // すべてのカードの状態を「裏向き」に設定
+    cards.forEach(card => {
+        card.classList.remove("clicked");
+    });
+});

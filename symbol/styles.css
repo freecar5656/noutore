@@ -46,7 +46,7 @@ button {
     text-decoration: none;
     border-radius: 100px; /* 角の丸みを調整 */
     font-weight: bold;
-    font-size: 10px;
+    font-size: 20px;
     margin-right: 10px;
     cursor: pointer;
     border: none;
@@ -71,15 +71,27 @@ button:hover {
 
 
 /* CSSファイルに追加するスタイル */
-#cardFlipButton {
+#nextButton {   
     position: fixed;
-    bottom: 50px; /* 画面下からの距離 */
-    right: 10%; /* 画面中央からの距離の半分 */
+    bottom: 20px; /* 画面下からの距離を調整 */
+    left: 50%; /* 画面中央に配置 */
+    transform: translateX(-50%); /* 中央揃えにするために左に移動 */
 }
 
-
-#answerButton {
+#checkAnswersButton {
     position: fixed;
-    bottom: 50px; /* 画面下からの距離 */
-    left: 10%; /* 画面中央からの距離の半分 */
+    bottom: 20px; /* 画面下からの距離を調整 */
+    left: 50%; /* 画面中央に配置 */
+    transform: translateX(-50%); /* 中央揃えにするために左に移動 */
+}
+
+@keyframes fadeInUp {   
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) translateX(0); /* X軸方向の変位を追加 */
+    }
 }

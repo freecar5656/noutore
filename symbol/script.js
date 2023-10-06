@@ -172,7 +172,11 @@ document.addEventListener("DOMContentLoaded", function () {
             cardFlipButton.textContent = "カードめくりへ";
             cardFlipButton.id = "cardFlipButton";
 
-
+            // カードめくりへボタンのスタイルを設定して右側に配置
+            cardFlipButton.style.position = "fixed";
+            cardFlipButton.style.bottom = "50px";  // 画面下からの距離
+            cardFlipButton.style.left = "50%";    // 画面中央からの距離の半分
+            cardFlipButton.style.transform = "translateX(-50%)";  // 中央揃え
 
             // カードめくりへボタンのクリックイベントを設定
             cardFlipButton.addEventListener("click", () => {
@@ -185,4 +189,10 @@ const stage3Content = document.getElementById("imageTable");
 stage3Content.appendChild(cardFlipButton);
         }
     });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    // ページが読み込まれたらアニメーションを開始
+    const body = document.body;
+    body.style.animationPlayState = "running";
 });

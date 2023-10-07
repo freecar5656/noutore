@@ -4,6 +4,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: white; /* 背景色を白に設定 */
+    color: #333; /* 文字色を設定 */
 }
 
 /* ヘッダーのスタイル */
@@ -62,10 +63,12 @@ h2 {
     color: #333;
 }
 
+
 .start-button {
     background-color: #70b2b2;
     color: #fff;
     font-size: 18px;
+    border-radius: 100px; /* 角の丸みを調整 */
     padding: 10px 20px;
     border: none;
     cursor: pointer;
@@ -81,12 +84,14 @@ h2 {
     display: flex;
     justify-content: center; /* 中央に寄せる */
     margin-top: 20px;
+    color: #333; /* 文字色を設定 */
 }
 
 .option {
     text-align: center;
     flex: 1; /* 幅を均等に分配 */
     max-width: 20%; /* 最大幅を設定 */
+    color: #333; /* 文字色を設定 */
 }
 
 /* フッターのスタイル */

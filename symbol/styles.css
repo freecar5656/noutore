@@ -5,6 +5,17 @@ body {
     background-color: #fff; /* 白い背景 */
 }
 
+@keyframes fadeInUp {   
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) translateX(0); /* X軸方向の変位を追加 */
+    }
+}
+
 /* コンテナを中央に配置し、左右に余白を持たせるためのスタイル */
 .container {
     max-width: 90%; /* コンテナの最大幅を画面の横幅に合わせる */
@@ -46,7 +57,7 @@ button {
     text-decoration: none;
     border-radius: 100px; /* 角の丸みを調整 */
     font-weight: bold;
-    font-size: 20px;
+    font-size: 10px;
     margin-right: 10px;
     cursor: pointer;
     border: none;
@@ -85,13 +96,3 @@ button:hover {
     transform: translateX(-50%); /* 中央揃えにするために左に移動 */
 }
 
-@keyframes fadeInUp {   
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) translateX(0); /* X軸方向の変位を追加 */
-    }
-}

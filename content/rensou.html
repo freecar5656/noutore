@@ -3,7 +3,33 @@
 <head>
   <title>連想ゲーム</title>
   <style>
-    /* ページ全体を囲むコンテナのスタイル */
+#page-container {
+  /* 既存のスタイル */
+
+  /* アニメーションの初期設定 */
+  opacity: 0; /* 初期状態で非表示にする */
+  transform: translateY(10px); /* 初期状態で下に移動 */
+
+  /* アニメーションの設定 */
+  animation-name: slide-fade-in;
+  animation-duration: 1s; /* アニメーションの時間（1秒） */
+  animation-timing-function: ease; /* イージング関数を指定（任意のものを選択できます） */
+  animation-delay: 0.5s; /* アニメーションの遅延時間（0.5秒） */
+  animation-fill-mode: forwards; /* アニメーション終了後に最終状態を保持 */
+}
+
+@keyframes slide-fade-in {
+  /* フェードインとスライドのアニメーション定義 */
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
     #page-container {
       border: 2px solid #70b2b2; /* 線の色と太さを設定 */
       border-radius: 10px; /* 角丸の半径を設定 */

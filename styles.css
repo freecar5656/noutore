@@ -142,6 +142,11 @@ button:last-child {
     animation: fadeIn 1s ease-in-out;
 }
 
+#current-date {
+    font-size: 2em;
+    text-align: center; /* テキストを中央揃えに設定 */
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

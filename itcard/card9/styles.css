@@ -103,6 +103,6 @@ body {
 
 /* "次のワークへ" Button Styles */
 .next-work-button {
-    width: 165px; /* 横幅を200pxに指定 */
+    width: 200px; /* 横幅を200pxに指定 */
     text-align: center;
 }

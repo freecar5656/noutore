@@ -78,7 +78,7 @@ body {
 /* Button Container Styles */
 .button-container {
     text-align: center;
-    margin-top: 20px;
+    margin-top: -50px;
 }
 
 /* Button Styles */
@@ -107,3 +107,9 @@ body {
     width: 165px; /* 横幅を200pxに指定 */
     text-align: center;
 }
+/* "ホームに戻る" Button Styles */
+.next-home-button {
+    width: 160px; /* 横幅を200pxに指定 */
+    text-align: center;
+}
+

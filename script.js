@@ -12,8 +12,3 @@ dateElement.innerHTML = `<a href="https://www.nnh.to/" target="_self">${dateText
 // ボタン要素を取得
 const button = document.querySelector('button');
 
-// すべての要素を選択
-const elements = e.querySelectorAll("*");
-
-// 特定の要素を選択（例: クラス名が 'x' の要素）
-const specificElements = e.querySelectorAll(".x");

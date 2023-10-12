@@ -4,7 +4,7 @@
 const cards = document.querySelectorAll(".flip-card");
 
 // 1 から 20 までの数字を含む配列を作成
-const numbers = Array.from({ length: 20 }, (_, index) => (index + 1).toString().padStart(2, '0'));
+const numbers = Array.from({ length: 30 }, (_, index) => (index + 1).toString().padStart(2, '0'));
 
 // 配列をシャッフルする関数
 function shuffleArray(array) {

@@ -63,7 +63,6 @@ h2 {
     color: #333;
 }
 
-
 .start-button {
     background-color: #70b2b2;
     color: #fff;
@@ -137,6 +136,7 @@ button:last-child {
     text-decoration: none; /* アンダーラインを非表示 */
     color: #000; /* リンクの文字色を黒に設定 */
 }
+
 /* ページのフェードインアニメーション */
 .page-animation {
     animation: fadeIn 1s ease-in-out;
@@ -156,3 +156,55 @@ button:last-child {
     }
 }
 
+/* スマートフォン向けのスタイル */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px; /* フォントサイズを調整 */
+    }
+
+    header {
+        padding: 10px 0; /* ヘッダーのパディングを調整 */
+    }
+
+    .logo img {
+        width: 80%; /* ロゴの幅を調整 */
+        max-width: 200px; /* ロゴの最大幅を調整 */
+    }
+
+    main {
+        padding: 10px; /* メインコンテンツのパディングを調整 */
+    }
+
+    .game-options {
+        flex-direction: column; /* ゲームオプションを縦に配置 */
+        align-items: center; /* ゲームオプションを中央に配置 */
+    }
+
+    .option {
+        max-width: 80%; /* オプションの最大幅を調整 */
+    }
+}
+
+/* デスクトップ向けのスタイル */
+@media (min-width: 769px) {
+    header {
+        padding: 20px 0;
+    }
+
+    .logo img {
+        width: 50%;
+        max-width: 300px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .game-options {
+        flex-direction: row;
+    }
+
+    .option {
+        max-width: 20%;
+    }
+}

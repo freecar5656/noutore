@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カードゲーム</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .card-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .card {
+            width: 800px;
+            height: 450px;
+            cursor: pointer;
+        }
+
+        #cardImage {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card" id="card">
+            <img src="../images/back.jpg" alt="カードの裏面" id="cardImage">
+        </div>
+    </div>
+    <script>
+        const cardImage = document.getElementById('cardImage');
+        const images = [...Array(20).keys()].map(i => `../imagerensou/${String(i + 1).padStart(2, '0')}.jpg`);
+        let imageIndex = 0;
+
+        function changeCardImage() {
+            const randomImage = images[imageIndex];
+            cardImage.src = randomImage;
+            imageIndex = (imageIndex + 1) % images.length;
+        }
+
+        cardImage.addEventListener('click', changeCardImage);
+    </script>
+</body>
+</html>

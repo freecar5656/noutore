@@ -36,13 +36,13 @@ function changeCardImage(cardId, imageName, folder) {
 const cardImageMap = {
     "card1": { imageName: `${i1}`, folder: "images" },
     "card2": { imageName: `${i2}`, folder: "imageit" },
-    "card3": { imageName: `${i3}`, folder: "images" },
-    "card4": { imageName: `${i4}`, folder: "imageit" },
+    "card3": { imageName: `01`, folder: "imageTrend" },
+    "card4": { imageName: `02`, folder: "imageTrend" },
     "card5": { imageName: `${i5}`, folder: "images" },
     "card6": { imageName: `${i6}`, folder: "imageit" },
     "card7": { imageName: `${i7}`, folder: "images" },
     "card8": { imageName: `${i8}`, folder: "imageit" },
-    "card9": { imageName: `${i9}`, folder: "images" }
+    "card9": { imageName: `03`, folder: "imageTrend" }
 };
 
 // カードに画像を割り当てる

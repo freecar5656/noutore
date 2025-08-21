@@ -10,7 +10,7 @@
       padding: 20px;
     }
     h1 { font-size: 1.5em; }
-    button {
+    button { 
       font-size: 1.2em;
       padding: 10px 20px;
       margin: 5px;
@@ -20,10 +20,17 @@
       font-size: 6em;
       font-weight: bold;
     }
+    #timer {
+      font-size: 2em;
+      font-weight: bold;
+      margin: 30px 0;
+      color: #ff4d4d;
+    }
   </style>
 </head>
 <body>
   <h1>脳トレお題表示アプリ</h1>
+
   <div>
     <label>カテゴリー選択：</label>
     <select id="category">
@@ -35,6 +42,7 @@
     <button onclick="hideOdai()">本人に渡す（隠す）</button>
     <button onclick="resetUsed()">使用済みクリア</button>
   </div>
+
   <div id="odai">お題がここに表示されます</div>
 
   <div>
@@ -42,6 +50,16 @@
     <input type="text" id="customInput" placeholder="新しいお題">
     <button onclick="addCustomOdai()">追加</button>
   </div>
+
+  <div style="margin-top:30px;">
+    <span>タイマー：</span>
+    <button onclick="startTimer(600)">10分</button>
+    <button onclick="startTimer(300)">5分</button>
+    <button onclick="startTimer(180)">3分</button>
+    <button onclick="startTimer(60)">1分</button>
+  </div>
+
+  <div id="timer">00:00</div>
 
   <script>
     const nouns = ["りんご", "新聞", "テレビ", "病院", "花火", "こたつ", "バス", "電話", "お寿司", "海", "山"];
@@ -91,9 +109,31 @@
         alert("追加しました: " + val);
       }
     }
+
+    // タイマー機能
+    let timerInterval;
+
+    function startTimer(seconds) {
+      clearInterval(timerInterval); // 前のタイマーをクリア
+      let remaining = seconds;
+      updateTimerDisplay(remaining);
+
+      timerInterval = setInterval(() => {
+        remaining--;
+        if (remaining <= 0) {
+          clearInterval(timerInterval);
+          document.getElementById("timer").textContent = "終了！";
+          return;
+        }
+        updateTimerDisplay(remaining);
+      }, 1000);
+    }
+
+    function updateTimerDisplay(seconds) {
+      const min = Math.floor(seconds / 60);
+      const sec = seconds % 60;
+      document.getElementById("timer").textContent = `${String(min).padStart(2,'0')}:${String(sec).padStart(2,'0')}`;
+    }
   </script>
 </body>
 </html>
-
-
-

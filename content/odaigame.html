@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <title>”]ƒgƒŒ‚¨‘è•\¦ƒAƒvƒŠ</title>
+  <meta charset="UTF-8">
+  <title>è„³ãƒˆãƒ¬ãŠé¡Œè¡¨ç¤ºã‚¢ãƒ—ãƒª</title>
   <style>
     body {
       font-family: sans-serif;
@@ -22,29 +23,29 @@
   </style>
 </head>
 <body>
-  <h1>”]ƒgƒŒ‚¨‘è•\¦ƒAƒvƒŠ</h1>
+  <h1>è„³ãƒˆãƒ¬ãŠé¡Œè¡¨ç¤ºã‚¢ãƒ—ãƒª</h1>
   <div>
-    <label>ƒJƒeƒSƒŠ[‘I‘ğF</label>
+    <label>ã‚«ãƒ†ã‚´ãƒªãƒ¼é¸æŠï¼š</label>
     <select id="category">
-      <option value="all">¬‡</option>
-      <option value="noun">–¼Œ</option>
-      <option value="adj">Œ`—eŒEŠ´Šo•\Œ»</option>
+      <option value="all">æ··åˆ</option>
+      <option value="noun">åè©</option>
+      <option value="adj">å½¢å®¹è©ãƒ»æ„Ÿè¦šè¡¨ç¾</option>
     </select>
-    <button onclick="nextOdai()">Ÿ‚Ì‚¨‘è</button>
-    <button onclick="hideOdai()">–{l‚É“n‚·i‰B‚·j</button>
-    <button onclick="resetUsed()">g—pÏ‚İƒNƒŠƒA</button>
+    <button onclick="nextOdai()">æ¬¡ã®ãŠé¡Œ</button>
+    <button onclick="hideOdai()">æœ¬äººã«æ¸¡ã™ï¼ˆéš ã™ï¼‰</button>
+    <button onclick="resetUsed()">ä½¿ç”¨æ¸ˆã¿ã‚¯ãƒªã‚¢</button>
   </div>
-  <div id="odai">‚¨‘è‚ª‚±‚±‚É•\¦‚³‚ê‚Ü‚·</div>
+  <div id="odai">ãŠé¡ŒãŒã“ã“ã«è¡¨ç¤ºã•ã‚Œã¾ã™</div>
 
   <div>
-    <label>‚¨‘è‚ğ’Ç‰ÁF</label>
-    <input type="text" id="customInput" placeholder="V‚µ‚¢‚¨‘è">
-    <button onclick="addCustomOdai()">’Ç‰Á</button>
+    <label>ãŠé¡Œã‚’è¿½åŠ ï¼š</label>
+    <input type="text" id="customInput" placeholder="æ–°ã—ã„ãŠé¡Œ">
+    <button onclick="addCustomOdai()">è¿½åŠ </button>
   </div>
 
   <script>
-    const nouns = ["‚è‚ñ‚²", "V•·", "ƒeƒŒƒr", "•a‰@", "‰Ô‰Î", "‚±‚½‚Â", "ƒoƒX", "“d˜b", "‚¨õi", "ŠC", "R"];
-    const adjs = ["ŠÃ‚¢", "‹ê‚¢", "Š¦‚¢", "’É‚¢", "–°‚¢", "d‚¢", "‘¬‚¢", "’x‚¢", "”M‚¢", "—â‚½‚¢", "‚©‚í‚¢‚¢", "‚¤‚é‚³‚¢"];
+    const nouns = ["ã‚Šã‚“ã”", "æ–°è", "ãƒ†ãƒ¬ãƒ“", "ç—…é™¢", "èŠ±ç«", "ã“ãŸã¤", "ãƒã‚¹", "é›»è©±", "ãŠå¯¿å¸", "æµ·", "å±±"];
+    const adjs = ["ç”˜ã„", "è‹¦ã„", "å¯’ã„", "ç—›ã„", "çœ ã„", "é‡ã„", "é€Ÿã„", "é…ã„", "ç†±ã„", "å†·ãŸã„", "ã‹ã‚ã„ã„", "ã†ã‚‹ã•ã„"];
 
     let used = JSON.parse(localStorage.getItem("usedOdai") || "[]");
     let custom = JSON.parse(localStorage.getItem("customOdai") || "[]");
@@ -62,7 +63,7 @@
     function nextOdai() {
       const pool = getPool();
       if (pool.length === 0) {
-        document.getElementById("odai").textContent = "‚¨‘è‚ª‚à‚¤‚ ‚è‚Ü‚¹‚ñ (ƒNƒŠƒA‚µ‚Ä‚­‚¾‚³‚¢)";
+        document.getElementById("odai").textContent = "ãŠé¡ŒãŒã‚‚ã†ã‚ã‚Šã¾ã›ã‚“ (ã‚¯ãƒªã‚¢ã—ã¦ãã ã•ã„)";
         return;
       }
       const odai = pool[Math.floor(Math.random() * pool.length)];
@@ -72,13 +73,13 @@
     }
 
     function hideOdai() {
-      document.getElementById("odai").textContent = "(–{l‚É‚Í‚¨‘è‚ğŒ©‚¹‚È‚¢)";
+      document.getElementById("odai").textContent = "(æœ¬äººã«ã¯ãŠé¡Œã‚’è¦‹ã›ãªã„)";
     }
 
     function resetUsed() {
       used = [];
       localStorage.removeItem("usedOdai");
-      alert("g—pÏ‚İƒŠƒXƒg‚ğƒNƒŠƒA‚µ‚Ü‚µ‚½");
+      alert("ä½¿ç”¨æ¸ˆã¿ãƒªã‚¹ãƒˆã‚’ã‚¯ãƒªã‚¢ã—ã¾ã—ãŸ");
     }
 
     function addCustomOdai() {
@@ -87,9 +88,10 @@
         custom.push(val);
         localStorage.setItem("customOdai", JSON.stringify(custom));
         document.getElementById("customInput").value = "";
-        alert("’Ç‰Á‚µ‚Ü‚µ‚½: " + val);
+        alert("è¿½åŠ ã—ã¾ã—ãŸ: " + val);
       }
     }
   </script>
 </body>
 </html>
+

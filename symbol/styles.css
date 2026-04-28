@@ -1,98 +1,277 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #fff; /* 白い背景 */
+    min-height: 100vh;
+    font-family: "Noto Sans JP", sans-serif;
+    background: linear-gradient(180deg, #f6f1ff 0%, #efe9ff 100%);
+    color: #23263a;
+    overflow-x: hidden;
 }
 
-@keyframes fadeInUp {   
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) translateX(0); /* X軸方向の変位を追加 */
-    }
+.bg-glow {
+    position: fixed;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    filter: blur(48px);
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
 }
 
-/* コンテナを中央に配置し、左右に余白を持たせるためのスタイル */
+.bg-glow-left {
+    top: -120px;
+    left: -90px;
+    background: #d9c9ff;
+}
+
+.bg-glow-right {
+    right: -110px;
+    bottom: -130px;
+    background: #c5dcff;
+}
+
 .container {
-    max-width: 90%; /* コンテナの最大幅を画面の横幅に合わせる */
-    margin: 0%; /* 水平方向に中央に配置 */
-    padding: 40px; /* 左右に余白を持たせる */
-    text-align: center; /* 表示内容を中央揃えに */
+    position: relative;
+    z-index: 1;
+    width: min(980px, calc(100% - 28px));
+    margin: 10px auto 78px;
+    padding: 14px 14px 16px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 16px 38px rgba(119, 105, 176, 0.14);
+    backdrop-filter: blur(6px);
+    text-align: center;
+    animation: revealUp 0.6s ease-out both;
 }
 
-/* 表のスタイル */
+.page-title {
+    margin: 0 0 2px;
+    font-size: clamp(22px, 3vw, 32px);
+    line-height: 1.2;
+}
+
+.page-subtitle {
+    margin: 0 0 8px;
+    color: #646b87;
+    font-size: clamp(12px, 1.4vw, 14px);
+}
+
 .table {
-    display: table;
     width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
+    animation: revealUp 0.55s ease-out both;
 }
 
-.row {
-    display: table-row;
+.memory-board {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
+    grid-template-rows: repeat(3, auto);
+    gap: 6px;
+    width: min(600px, 100%);
+    margin: 0 auto;
+    padding: 2px;
 }
 
-.cell {
-    display: table-cell;
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center; /* セル内のテキストを中央揃えにする */
+.memory-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    width: min(760px, 100%);
+    margin: 0 auto;
+    padding: 2px;
 }
 
-#imageRow img {
-    max-width: 100%;
-    height: auto;
+.board-slot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.row-slot {
+    min-width: 0;
+}
+
+.slot-top {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.slot-left {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.slot-center {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.slot-right {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.slot-bottom {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.position-label {
+    font-size: clamp(14px, 1.9vw, 20px);
+    font-weight: 800;
+    color: #5a4ecf;
+    background: #f8f5ff;
+    border: 1px solid #e9e2ff;
+    border-radius: 999px;
+    padding: 4px 10px;
+    min-width: 70px;
+}
+
+.card-cell {
+    width: 100%;
+    max-width: 152px;
+    aspect-ratio: 4 / 3;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 18px rgba(123, 111, 189, 0.16);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-cell:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 24px rgba(123, 111, 189, 0.2);
+}
+
+.card-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
+    animation: revealScale 0.35s ease-out;
+}
+
+.button-container {
+    position: fixed;
+    right: 14px;
+    bottom: 10px;
+    transform: none;
+    z-index: 3;
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
 button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #70b2b2;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 100px; /* 角の丸みを調整 */
-    font-weight: bold;
-    font-size: 10px;
-    margin-right: 10px;
-    cursor: pointer;
+    appearance: none;
     border: none;
+    border-radius: 999px;
+    padding: 9px 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    background: linear-gradient(135deg, #7566e4, #9c72f5);
+    box-shadow: 0 8px 18px rgba(108, 92, 214, 0.24);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 button:hover {
-    background-color: #0fe7d5; /* ボタンにマウスを移動すると少し濃い青になる */
+    transform: translateY(-2px);
+    box-shadow: 0 12px 22px rgba(108, 92, 214, 0.3);
+    filter: brightness(1.03);
 }
 
-/* 1行目のセルのフォントサイズを25に設定 */
-.row:first-child .cell {
-    font-size: 30px;
+button:active {
+    transform: translateY(0) scale(0.98);
 }
 
-/* ボタンの親要素に対するスタイル */
-.button-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0px; /* 適切なマージンを設定してボタンを上下に配置 */
-}
-
-
-/* CSSファイルに追加するスタイル */
-#nextButton {   
-    position: fixed;
-    bottom: 20px; /* 画面下からの距離を調整 */
-    left: 50%; /* 画面中央に配置 */
-    transform: translateX(-50%); /* 中央揃えにするために左に移動 */
-}
-
+#answerButton,
 #checkAnswersButton {
-    position: fixed;
-    bottom: 20px; /* 画面下からの距離を調整 */
-    left: 50%; /* 画面中央に配置 */
-    transform: translateX(-50%); /* 中央揃えにするために左に移動 */
+    margin-top: 8px;
+    background: linear-gradient(135deg, #67cdb5, #59b8e8);
+    box-shadow: 0 8px 18px rgba(80, 160, 204, 0.22);
 }
 
+#cardFlipButton {
+    background: linear-gradient(135deg, #7d72ea, #5f73e8);
+}
+
+.stage-transition {
+    animation: revealUp 0.4s ease-out both;
+}
+
+@keyframes revealUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes revealScale {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: calc(100% - 16px);
+        margin: 8px auto 74px;
+        padding: 10px 8px 10px;
+        border-radius: 16px;
+    }
+
+    .memory-board {
+        gap: 4px;
+        padding: 2px;
+    }
+
+    .memory-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .position-label {
+        min-width: 56px;
+        padding: 3px 8px;
+        font-size: 13px;
+    }
+
+    .card-cell {
+        max-width: 106px;
+    }
+
+    button {
+        padding: 8px 14px;
+        font-size: 12px;
+    }
+
+    .button-container {
+        right: 8px;
+        bottom: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}

@@ -1,210 +1,470 @@
-/* ページ全体のスタイル */
+/* =========================================
+   全体共通
+   ========================================= */
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: white; /* 背景色を白に設定 */
-    color: #333; /* 文字色を設定 */
-}
-
-/* ヘッダーのスタイル */
-header {
-    background-color: white; /* 背景色を白に設定 */
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #f4f0ff;
+    background-image: url("img/back.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100% auto;
     text-align: center;
-    padding: 20px 0;
+    color: #1f2430;
+    overflow-x: hidden;
+    animation: pageFadeIn 0.6s ease-out;
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
+/* =========================================
+   ヘッダー
+   ========================================= */
+header {
+    background: #fff;
+    padding: 10px 0;
+    border-radius: 0 0 14px 14px;
+    box-shadow: 0 4px 18px rgba(116, 110, 162, 0.12);
+    animation: revealUp 0.55s ease-out both;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333; /* メニューテキストの色を変更 */
-    font-weight: bold;
-    font-size: 18px;
-}
-
-h1 {
-    font-size: 36px;
-    color: #333;
-}
-
-h3 {
-    font-size: 24px;
-    color: #333;
+.header-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 12px;
 }
 
 .logo img {
-    width: 50%; /* ロゴの幅を半分に設定 */
-    max-width: 300px; /* ロゴの最大幅を設定 */
-    height: auto; /* アスペクト比を維持 */
-    margin-top: 10px;
+    height: 44px;
+    transition: transform 0.25s ease;
 }
 
-/* メインコンテンツセクションのスタイル */
-main {
-    padding: 20px;
+.logo img:hover {
+    transform: scale(1.03);
 }
 
-section {
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-h2 {
-    font-size: 24px;
-    color: #333;
-}
-
-.start-button {
-    background-color: #70b2b2;
+.top-play-btn {
+    background: linear-gradient(135deg, #7169DF, #956FF5);
     color: #fff;
-    font-size: 18px;
-    border-radius: 100px; /* 角の丸みを調整 */
-    padding: 10px 20px;
     border: none;
+    padding: 12px 32px;
+    border-radius: 999px;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 8px 16px rgba(105, 85, 214, 0.22);
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-.start-button:hover {
-    background-color: #4c7a7a;
+main {
+    position: relative;
+    max-width: 980px;
+    margin: 18px auto 0;
+    padding: 8px 12px 0;
 }
 
-/* ゲームオプションのスタイル */
-.game-options {
+#current-date-container {
+    width: 100%;
     display: flex;
-    justify-content: center; /* 中央に寄せる */
-    margin-top: 20px;
-    color: #333; /* 文字色を設定 */
+    justify-content: center;
+    margin: 18px 0 24px;
+    animation: revealUp 0.55s ease-out 0.12s both;
 }
 
-.option {
-    text-align: center;
-    flex: 1; /* 幅を均等に分配 */
-    max-width: 20%; /* 最大幅を設定 */
-    color: #333; /* 文字色を設定 */
+#current-date {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    background: #fff;
+    padding: 14px 28px;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(106, 93, 174, 0.12);
+    font-size: 42px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* フッターのスタイル */
-footer {
-    text-align: center; /* テキストを中央に寄せる */
-    padding: 20px 0;
-    color: #585858f7; /* テキストの色を設定 */
+#current-date:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(106, 93, 174, 0.18);
 }
 
-footer p {
-    margin: 0; /* マージンをリセットしてテキストを中央に配置 */
+.date-icon {
+    width: 1em !important;
+    height: 1em !important;
+    min-width: 1em;
+    min-height: 1em;
+    display: block;
+    flex: 0 0 1em;
+    object-fit: contain;
 }
 
-/* ボタンのスタイル */
-button {
-    background-color: #70b2b2; /* ボタンの背景色 */
-    color: #fff; /* ボタンのテキスト色 */
-    font-size: 18px; /* フォントサイズ */
-    padding: 10px 20px; /* パディング */
-    border: none; /* ボーダーをなくす */
+#date-text {
+    font-size: 1em;
+    font-weight: 800;
+    color: #222a3a;
+    line-height: 1;
+}
+
+.category-area {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 auto 16px;
+    padding: 0;
+}
+
+.category-card {
+    flex: 1;
+    background: #fff;
+    padding: 22px 20px 24px;
+    border-radius: 22px;
+    box-shadow: 0 8px 24px rgba(104, 93, 167, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: revealUp 0.55s ease-out both;
+}
+
+.category-card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.category-card:nth-child(2) {
+    animation-delay: 0.28s;
+}
+
+.category-card:nth-child(3) {
+    animation-delay: 0.36s;
+}
+
+.category-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 30px rgba(104, 93, 167, 0.16);
+}
+
+.icon-circle {
+    background: none;
+    width: auto;
+    height: auto;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.category-icon {
+    width: 108px;
+    height: 108px;
+    object-fit: contain;
+    transition: transform 0.25s ease;
+}
+
+.category-card:hover .category-icon {
+    transform: scale(1.08) rotate(-3deg);
+}
+
+.category-card h3 {
+    font-size: 48px;
+    margin: 0 0 16px;
+    font-weight: 800;
+    color: #222936;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.button-group a {
+    text-decoration: none;
+}
+
+.btn-count {
+    width: 116px;
+    padding: 11px 0;
+    border-radius: 999px;
+    border: none;
+    color: #fff;
+    font-weight: 700;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* ホバー時のトランジション */
-    border-radius: 5px; /* ボーダーの角を丸める */
-    margin-right: 10px; /* ボタン間の間隔 */
+    font-size: 38px;
+    line-height: 1;
+    box-shadow: 0 6px 14px rgba(94, 100, 198, 0.2);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
 }
 
-button:hover {
-    background-color: #4c7a7a; /* ホバー時の背景色 */
+.btn-count:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 10px 18px rgba(94, 100, 198, 0.28);
+    filter: brightness(1.04);
 }
 
-/* ボタン間の最後のボタンの右マージンを削除 */
-button:last-child {
-    margin-right: 0;
+.btn-count:active {
+    transform: translateY(0) scale(0.99);
 }
 
-/* 日付と曜日の大きさを3倍に設定 */
-#current-date {
-    font-size: 2em;
+.purple-btn {
+    background: linear-gradient(180deg, #b889ff 0%, #9d66f2 100%);
 }
 
-/* リンクのスタイルを修正 */
-#current-date a {
-    text-decoration: none; /* アンダーラインを非表示 */
-    color: #000; /* リンクの文字色を黒に設定 */
+.blue-btn {
+    background: linear-gradient(180deg, #8aa9ff 0%, #6f80ec 100%);
 }
 
-/* ページのフェードインアニメーション */
-.page-animation {
-    animation: fadeIn 1s ease-in-out;
+.green-btn {
+    background: linear-gradient(180deg, #7fe2a3 0%, #66cd94 100%);
 }
 
-#current-date {
-    font-size: 2em;
-    text-align: center; /* テキストを中央揃えに設定 */
+.bottom-games-area {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 auto;
 }
 
-@keyframes fadeIn {
-    0% {
+.game-link-card {
+    flex: 1;
+    background: #fff;
+    padding: 16px 18px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0 8px 22px rgba(104, 93, 167, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    animation: revealUp 0.55s ease-out both;
+}
+
+.game-link-card:nth-child(1) {
+    animation-delay: 0.42s;
+}
+
+.game-link-card:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.game-link-card:nth-child(3) {
+    animation-delay: 0.58s;
+}
+
+.game-link-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(104, 93, 167, 0.15);
+    background-color: #fcfbff;
+}
+
+.game-link-icon {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    margin-right: 12px;
+    transition: transform 0.25s ease;
+}
+
+.game-link-card:hover .game-link-icon {
+    transform: scale(1.07) rotate(-6deg);
+}
+
+.game-title {
+    color: #6357d6;
+    font-weight: 800;
+    font-size: 34px;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.arrow {
+    color: #6357d6;
+    font-weight: 800;
+    font-size: 28px;
+    line-height: 1;
+    transition: transform 0.25s ease;
+}
+
+.game-link-card:hover .arrow {
+    transform: translateX(5px);
+}
+
+.bg-decoration {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.brain {
+    top: 2px;
+    left: 10px;
+    width: 190px !important;
+    height: auto !important;
+    z-index: 1;
+    animation: floatBrain 3.8s ease-in-out infinite;
+}
+
+.floating-cards-area {
+    position: absolute;
+    top: -2px;
+    right: 34px;
+    width: 164px;
+    z-index: 1;
+}
+
+.f-card {
+    position: absolute;
+    width: 58px;
+    background: #fff;
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(115, 107, 162, 0.1);
+    animation: floatCard 4.2s ease-in-out infinite;
+}
+
+.f1 {
+    transform: rotate(-12deg);
+    top: 4px;
+    right: 74px;
+}
+
+.f2 {
+    transform: rotate(10deg);
+    top: 0;
+    right: 16px;
+    animation-delay: 0.4s;
+}
+
+.f3 {
+    transform: rotate(-6deg);
+    top: 56px;
+    right: -8px;
+    animation-delay: 0.8s;
+}
+
+@keyframes pageFadeIn {
+    from {
         opacity: 0;
+        transform: translateY(6px);
     }
-    100% {
+    to {
         opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* スマートフォン向けのスタイル */
+@keyframes revealUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatBrain {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes floatCard {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+#current-date-container,
+.category-area,
+.bottom-games-area,
+footer {
+    position: relative;
+    z-index: 2;
+}
+
+footer {
+    margin-top: 28px;
+    padding: 8px 0 14px;
+    color: #737a92;
+    font-size: 15px;
+    animation: revealUp 0.55s ease-out 0.66s both;
+}
+
 @media (max-width: 768px) {
-    body {
-        font-size: 16px; /* フォントサイズを調整 */
+    .top-play-btn {
+        font-size: 18px;
+        padding: 9px 18px;
     }
 
-    header {
-        padding: 10px 0; /* ヘッダーのパディングを調整 */
+    #current-date {
+        padding: 10px 16px;
+        gap: 8px;
+        font-size: 24px;
     }
 
-    .logo img {
-        width: 80%; /* ロゴの幅を調整 */
-        max-width: 200px; /* ロゴの最大幅を調整 */
+    .date-icon {
+        width: 1em !important;
+        height: 1em !important;
     }
 
-    main {
-        padding: 10px; /* メインコンテンツのパディングを調整 */
+    #date-text {
+        font-size: 1em;
     }
 
-    .game-options {
-        flex-direction: column; /* ゲームオプションを縦に配置 */
-        align-items: center; /* ゲームオプションを中央に配置 */
+    .category-area {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .option {
-        max-width: 80%; /* オプションの最大幅を調整 */
-    }
-}
-
-/* デスクトップ向けのスタイル */
-@media (min-width: 769px) {
-    header {
-        padding: 20px 0;
+    .category-card {
+        width: 100%;
+        max-width: 400px;
     }
 
-    .logo img {
-        width: 50%;
-        max-width: 300px;
+    .category-card h3 {
+        font-size: 34px;
     }
 
-    main {
-        padding: 20px;
+    .btn-count {
+        font-size: 30px;
     }
 
-    .game-options {
-        flex-direction: row;
+    .bottom-games-area {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .option {
-        max-width: 20%;
+    .game-link-card {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .game-title {
+        font-size: 24px;
+    }
+
+    .brain,
+    .floating-cards-area {
+        display: none;
     }
 }

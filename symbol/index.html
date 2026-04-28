@@ -3,27 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <title>画像ギャラリー</title>
+    <title>シンボルワーク</title>
 </head>
 <body>
+    <div class="bg-glow bg-glow-left" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-right" aria-hidden="true"></div>
     <div class="container">
-        <div class="table" id="imageTable">
-            <div class="row">
-                <div class="cell">赤</div>
-                <div class="cell">青</div>
-                <div class="cell">白</div>
-                <div class="cell">黒</div>
-                <div class="cell">緑</div>
-            </div>
-            <div class="row" id="imageRow">
-                <div class="cell" id="cell1"></div>
-                <div class="cell" id="cell2"></div>
-                <div class="cell" id="cell3"></div>
-                <div class="cell" id="cell4"></div>
-                <div class="cell" id="cell5"></div>
-            </div>
-        </div>
+        <h1 class="page-title">シンボルワーク</h1>
+        <p class="page-subtitle">色と記号の並びを覚えて、答え合わせしてみよう</p>
+        <div class="table" id="imageTable"></div>
         <div class="button-container">
             <button id="nextButton">次へ</button>
             <button id="checkAnswersButton" style="display: none;">答え合わせ</button>

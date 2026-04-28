@@ -85,7 +85,7 @@ nextWorkButton.addEventListener("click", (e) => {
     e.preventDefault();
 
     // 同一タブで「symbol/index.html」へ遷移
-    window.location.href = "../../symbol/index.html";
+    window.open("../../symbol/index.html", "_blank", "noopener,noreferrer");
 
     // もし必要であれば、すべてのカードの状態を「クリックされていない」にリセットする
     cards.forEach(card => {

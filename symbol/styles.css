@@ -67,11 +67,11 @@ body {
     animation: revealUp 0.55s ease-out both;
 }
 
+/* ====== カード配置（中央揃え） ====== */
 .memory-board {
     display: grid;
-    place-items: center; /* ← 上下左右中央に配置 */
-    grid-template-columns: repeat(3, minmax(120px, 1fr));
-    grid-template-rows: repeat(3, auto);
+    place-items: center;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
     gap: 6px;
     width: min(600px, 100%);
     margin: 0 auto;
@@ -80,7 +80,7 @@ body {
 
 .memory-row {
     display: grid;
-    place-items: center; /* ← 上下左右中央に配置 */
+    place-items: center;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 10px;
     width: min(760px, 100%);
@@ -99,30 +99,11 @@ body {
     min-width: 0;
 }
 
-.slot-top {
-    grid-column: 2;
-    grid-row: 1;
-}
-
-.slot-left {
-    grid-column: 1;
-    grid-row: 2;
-}
-
-.slot-center {
-    grid-column: 2;
-    grid-row: 2;
-}
-
-.slot-right {
-    grid-column: 3;
-    grid-row: 2;
-}
-
-.slot-bottom {
-    grid-column: 2;
-    grid-row: 3;
-}
+.slot-top { grid-column: 2; grid-row: 1; }
+.slot-left { grid-column: 1; grid-row: 2; }
+.slot-center { grid-column: 2; grid-row: 2; }
+.slot-right { grid-column: 3; grid-row: 2; }
+.slot-bottom { grid-column: 2; grid-row: 3; }
 
 .position-label {
     font-size: clamp(14px, 1.9vw, 20px);
@@ -135,10 +116,11 @@ body {
     min-width: 70px;
 }
 
+/* ====== カード（小さくした版） ====== */
 .card-cell {
     width: 100%;
-    max-width: 152px;
-    aspect-ratio: 1 / 1; /* ← 正方形 */
+    max-width: 120px; /* ← iPad横画面に収まるサイズ */
+    aspect-ratio: 1 / 1;
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 10px 18px rgba(123, 111, 189, 0.16);
@@ -158,11 +140,11 @@ body {
     animation: revealScale 0.35s ease-out;
 }
 
+/* ====== ボタン ====== */
 .button-container {
     position: fixed;
     right: 14px;
     bottom: 10px;
-    transform: none;
     z-index: 3;
     display: flex;
     gap: 10px;
@@ -204,32 +186,22 @@ button:active {
     background: linear-gradient(135deg, #7d72ea, #5f73e8);
 }
 
+/* ====== アニメーション ====== */
 .stage-transition {
     animation: revealUp 0.4s ease-out both;
 }
 
 @keyframes revealUp {
-    from {
-        opacity: 0;
-        transform: translateY(16px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes revealScale {
-    from {
-        opacity: 0;
-        transform: scale(0.92);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+    from { opacity: 0; transform: scale(0.92); }
+    to { opacity: 1; transform: scale(1); }
 }
 
+/* ====== スマホ対応 ====== */
 @media (max-width: 768px) {
     .container {
         width: calc(100% - 16px);
@@ -241,13 +213,13 @@ button:active {
     .memory-board {
         gap: 4px;
         padding: 2px;
-        place-items: center; /* ← スマホでも中央 */
+        place-items: center;
     }
 
     .memory-row {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
-        place-items: center; /* ← スマホでも中央 */
+        place-items: center;
     }
 
     .position-label {
@@ -257,8 +229,8 @@ button:active {
     }
 
     .card-cell {
-        max-width: 106px;
-        aspect-ratio: 1 / 1; /* ← 正方形 */
+        max-width: 90px; /* ← スマホ用にさらに小さく */
+        aspect-ratio: 1 / 1;
     }
 
     button {

@@ -72,19 +72,3 @@ document.addEventListener("DOMContentLoaded", function () {
   body.style.animationPlayState = "running";
 });
 
-// 「次のワークへ」ボタンの参照を取得
-const nextWorkButton = document.getElementById("next-work-button");
-
-// ボタンにクリックイベントリスナーを追加
-nextWorkButton.addEventListener("click", (e) => {
-    // デフォルトの動作（リンク先への移動）を防ぐ
-    e.preventDefault();
-
-    // 同一タブで「symbol/index.html」へ遷移
-    window.open("../../symbol/index.html", "_blank", "noopener,noreferrer");
-    // もし必要であれば、すべてのカードの状態を「クリックされていない」にリセットする
-    cards.forEach(card => {
-        card.classList.remove("clicked");
-    });
-});
-

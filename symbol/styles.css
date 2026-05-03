@@ -69,6 +69,7 @@ body {
 
 .memory-board {
     display: grid;
+    place-items: center; /* ← 上下左右中央に配置 */
     grid-template-columns: repeat(3, minmax(120px, 1fr));
     grid-template-rows: repeat(3, auto);
     gap: 6px;
@@ -79,6 +80,7 @@ body {
 
 .memory-row {
     display: grid;
+    place-items: center; /* ← 上下左右中央に配置 */
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 10px;
     width: min(760px, 100%);
@@ -136,7 +138,7 @@ body {
 .card-cell {
     width: 100%;
     max-width: 152px;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1 / 1; /* ← 正方形 */
     border-radius: 14px;
     overflow: hidden;
     box-shadow: 0 10px 18px rgba(123, 111, 189, 0.16);
@@ -239,11 +241,13 @@ button:active {
     .memory-board {
         gap: 4px;
         padding: 2px;
+        place-items: center; /* ← スマホでも中央 */
     }
 
     .memory-row {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 8px;
+        place-items: center; /* ← スマホでも中央 */
     }
 
     .position-label {
@@ -254,6 +258,7 @@ button:active {
 
     .card-cell {
         max-width: 106px;
+        aspect-ratio: 1 / 1; /* ← 正方形 */
     }
 
     button {

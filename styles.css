@@ -384,16 +384,6 @@ main {
         transform: translateY(-6px);
     }
 }
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation: none !important;
-        transition: none !important;
-    }
-}
-
 #current-date-container,
 .category-area,
 .bottom-games-area,
